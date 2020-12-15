@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Module 2:CSS</title>
+	<style>
+		p {
+			color: blue;
+			font-size: 20px;
+			width: 200px;
+		}
+
+		h1 {
+			color: green;
+			font-size: 36px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Module 2: CSS Basics</h1>
+	<p>HTML is used to provide content for webpages. Cascading Style Sheets (CSS) is used to format that content. CSS is incredibly powerful and important to creating good websites. A website that presents many examples of how css can create drastically change website layouts and designs is csszengarden.com</p>
+	<nav>Contents:
+		<ul>
+			<li><a href="#Anatomy">Anatomy of a CSS Rule</a></li>
+			<li><a href="#ECID">Element, Class, and ID Selectors</a>
+				<ul>
+					<li><a href="#ElSelect">Element Selectors</a></li>
+					<li><a href="#ClSelect">Class Selectors</a></li>
+					<li><a href="#IDSelect">ID Selectors</a></li>
+					<li><a href="#GrSelect">Grouping Selectors</a></li>
+				</ul></li>
+			<li><a href="#CombSelect">Combining Selectors</a></li>
+		</ul>
+	</nav>
+
+	<h2 id="Anatomy">Anatomy of a CSS Rule</h2>
+	<p>Example of a CSS Rule:
+		<div>p {</div>
+		<div>color: blue;</div>
+		<div>}</div>
+	<ol>
+		<li>The first line contains the selector. The rules given below the selector apply to every item within the HTML file with that tag. In this instance, every item with the paragraph tag.</li>
+		<li>The second line contains the CSS declaration consisting of 2 parts.
+			<ol>
+				<li>Property: properties are predefined by CSS. In this case, the property is color.</li>
+				<li>Value: For every property there is a list of predefined values. In this case the value is blue.</li>
+			</ol></li>
+	</ol> </p>
+	<p>Each CSS rule can contain zero or more declarations.
+	<p>Example:</p>
+	<div>p {</div>
+	<div>color: blue;</div>
+	<div>font-size: 20px;</div>
+	<div>width: 200px;</div>
+	<div>}</div>
+	The collection of all of these CSS rules is called a style sheet. Style sheets go in the head section of the document for now in the &lt;style&gt; tag. Every browser comes with default styles for each tag type.
+	</p>
+
+	<h2 id="ECID">Element, Class, and ID Selectors</h2>
+	<p>Selectors tell our CSS rules what to apply to</p>
+	<section id="ElSelect">
+	<p>Element Selector: specifies the element tag that the CSS rule will apply to. In the example above, the element selector is p.</p></section>
+	<section id="ClSelect">
+	<p>Class Selector: Specifies a class that can be applied to elements selectively.</p>
+	<p>Example:
+		<div>.blue {</div>
+		<div>color: blue;</div>
+		<div>}</div>
+	</p>
+	<p>Class selectors can be applied to elements individually with the format:
+		<div>&lt;p class="blue"&gt; &lt;/p&gt;</div>
+	The text in this element will be blue.</p></section>
+	<section id="IDSelect">
+	<p>ID Selector: Specifies an ID value that the CSS rule will apply to.</p>
+	<p>Example:
+		<div>#name {</div>
+		<div>color: blue;</div>
+		<div>}</div>
+	</p>
+	<p>This will be applied to all elements with the ID "name":
+	<div>&lt;div id="name"&gt; &lt;/div&gt;</div>
+	The text in this element will be blue.</p></section>
+	<section id="GrSelect">
+		<p>Grouping Selectors: Multiple selectors can be grouped together, separating them with a comma. Both selectors will work to format content.</p>
+		<p>Example:</p>
+		<div>div, #name {</div>
+		<div>color: blue;</div>
+		<div>}</div>
+		<p>All elements type div or with id "name" will be blue.</p>
+	</section>
+
+	<h2 id="CombSelect">Combining Selectors</h2>
+
+</body>
+</html>
