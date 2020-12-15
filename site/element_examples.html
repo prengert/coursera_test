@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Elements Examples</title>
+</head>
+<body>
+	<h2 id="Section1">Semantic Elements</h2>
+	<header>Header holds header information including company logo, tag lines, etc.
+		<nav>Holds content used for navigation and can be inside or outside header tag</nav>
+	</header>
+	<section>Section stores similar information together
+		<article>Articles typically go inside of sections, but they don't have to</article>
+		<article>Article 2</article>
+		<article>Article 3</article>
+	</section>
+	<section>Information is this section is different from info in the first section
+		<article>Article 4</article>
+		<article>Article 5</article>
+		<article>Article 6</article>
+	</section>
+
+	<aside>Aside tags contain information that is related to the main topic, but is different.</aside>
+	<footer>Contains footer information</footer>
+	<div>All of these tags work the same as the div tag, but they add meaning to the code</div>
+	<h2>h1 through h6 contain heading information in order of importance</h2>
+
+	<aside>
+		<h2 id="Section2">Lists are also very important to websites.</h2>
+		<div>There are two types of lists, unordered lists and ordered lists</div>
+		<section>Unordered lists list elements with bullet points and start with the ul tag
+			<ul>
+				<li>Each list item needs to be surrounded by the li tag</li>
+				<li>We can have as many list items as we want</li>
+				<li>We can even have lists inside lists
+					<ul> 
+						<li>You just need to surround your list inside the list with an li tag</li>
+						<li>Include a new ul tag inside the outer li tag</li>
+						<li>Each list item inside the inner list also gets an li tag</li>
+					</ul>
+				</li>
+				<li>Items after an inner list still need the li tag</li>
+			</ul>
+		</section>
+		<section>Ordered lists are used to create numbered lists
+			<ol>
+				<li>First I use the ol tag to create an ordered list</li>
+				<li>Then I use the li tag to specify the elements of my list</li>
+				<li>I can still add lists inside my lists
+					<ol>
+						<li>They are made the same way as you make unordered lists</li>
+						<li>Just add as many elements as you would like</li>
+					</ol>
+				</li>
+				<li>I can still put list items after ordered lists as well</li>
+			</ol>
+		</section>
+	</aside>
+<h2 id="CharEntRef">Character Entity References</h2>
+<p>Sometimes we need to use characters that HTML uses as reference characters. In order to do that, we need to use escape language. There are three characters that always need to use escape language for. They are &lt;, &gt;, and &amp; and they are written as shown to left. Another common character entity reference is used for the copyright symbol, &copy;. Another common character entity reference is the non-breaking space. This is used when you want a set of characters separated by space(s) to always be on&nbsp;the&nbsp;same&nbsp;line. &quot;Some readers such as emails have more limited character sets and cannot read all utf-8 strings.&quot; Character entity references are useful to get around these errors.
+</p>
+
+<h2 id="InternalLinks">Creating links to internal locations</h2>
+<section>We can include links in-line by just using the a tag
+	<a href="index.html" title="Index">This text is what you click on to activate the link</a>
+	like this.
+	<div>We can include links on new lines by nesting a div tag inside the a tag
+		<a href="index.html" title="Index">
+			<div>By writing my linked text inside the div tag nested in the a tag, my link is on a new line.</div>
+		</a>
+	Like this.
+	</div>
+	<div>When we are linking within the same directory, we can just put the file name into the href element.</div>
+</section>
+
+<h2 id="ExternalLinks">Creating links to external locations</h2>
+<section>When we link to locations outside of the directory, we need to include the entire url in the href element.
+	<a href="https://www.wikipedia.org/" target="_blank" title="Come back to my page">Wikipedia Link</a>
+	<div> When linking to external sources, if you use the line target="_blank" it will open a new tab instead of opening the link on the same page</div>
+</section>
+
+<h2 id="FragmentIdentifiers">Fragement Identifiers</h2>
+<section>Fragment identifiers are links that are used to reference places on the same page. We will not leave the page, but we will be moved to a specific section of the page.
+	<div>Here is a list of fragment identifiers to move around the page:</div>
+	<ul>
+		<li><a href="#Section1">Semantic Identifiers</a></li>
+		<li><a href="#Section2">Lists</a></li>
+		<li><a href="#CharEntRef">Character Entity References</a></li>
+		<li><a href="#InternalLinks">Internal Links</a></li>
+		<li><a href="#ExternalLinks">External Links</a></li>
+		<li><a href="#FragmentIdentifiers">Fragment Identifiers</a></li>
+		<li><a href="#DisplayImages">Displaying Images</a></li>
+	</ul>
+<p>Formatting is very important for these links. The links above are formatted as a list. The formatting of a tag is different from other links. The format for fragment identifiers is shown below.</p>
+<div>&lt;a href="#SectionName"&gt;Link&lt;/a&gt;</div>
+<p>Only the links get the # sign. To tell these links where to go, you need to give an id to the element you are linking to. The id must be the same as the href from the link without the # sign.</p>
+<div>&lt;h2 id="SectionName"&gt;&lt;/h2&gt;</div>
+</section>
+
+<h2 id="DisplayImages">Displaying Images</h2>
+<section>img tags are inline tags that input images onto our webpage.
+	<!-- We can comment using this form -->
+	The format for inserting images is as below.
+	<p>&lt;img src="File-Name.jpg" width="Width-in-pixels" height="height-in-pixels" alt="Caption used by screen readers for visual impairment"&gt;</p>
+	<div>Here is an example of an inserted image. The image file is in the same directory as my html file.</div>
+	<div><img src="Jumpin_Joe_meme.png" height="722" width="1024" alt="Meme of Joe Biden mixed with Cad Bain"></div>
+</section>
+</body>
+</html>
