@@ -4,10 +4,22 @@
 	<meta charset="utf-8">
 	<title>Module 2:CSS</title>
 	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		.ContentOverflow {
+			background-color: #90EE90;
+			margin: 10px;
+			padding: 10px;
+			border: 5px solid black;
+			width: 300px;
+			height: 75px;
+		}
+
 		p {
 			color: blue;
 			font-size: 20px;
-			width: 200px;
 		}
 
 		h1 {
@@ -15,10 +27,24 @@
 			font-size: 36px;
 			text-align: center;
 		}
+
+		#BorderBoxes {
+			background-color: blue;
+			padding: 10px;
+			border: 20px solid black;
+			margin: 40px;
+			width: 300px;
+		}
+
+		#ContentBox {
+			background-color: #90EE90;
+		}
 	</style>
 </head>
 <body>
-	<h1>Module 2: CSS Basics</h1>
+	<h1 id="top">Module 2: CSS Basics</h1>
+	<a href="index.html"><div>Back to Index</div></a>
+	<a href="css_examples.html"><div>CSS Examples</div></a>
 	<p>HTML is used to provide content for webpages. Cascading Style Sheets (CSS) is used to format that content. CSS is incredibly powerful and important to creating good websites. A website that presents many examples of how css can create drastically change website layouts and designs is csszengarden.com</p>
 	<nav>Contents:
 		<ul>
@@ -31,6 +57,18 @@
 					<li><a href="#GrSelect">Grouping Selectors</a></li>
 				</ul></li>
 			<li><a href="#CombSelect">Combining Selectors</a></li>
+			<li><a href="#PseudoSelect">Pseudo-Class Selectors</a></li>
+			<li><a href="#StylePlacement">Style Placement</a></li>
+			<li><a href="#ConflictResolution">Conflict Resolution</a></li>
+			<li><a href="#StylingText">Styling Text</a></li>
+			<li><a href="#BoxModel">The Box Model</a></li>
+			<li><a href="#BackgroundProperty">The Background Property</a></li>
+			<li><a href="#FloatPostion">Positioning Elements by Floating</a></li>
+			<li><a href="#RnEPos">Relative and Absolute Element Positioning</a></li>
+			<li><a href="#MediaQueries">Media Queries</a></li>
+			<li><a href="#Responsive">Responsive Design</a></li>
+			<li><a href="#TwitterBS">Introduction to Twitter Bootstrap</a></li>
+			<li><a href="#BSGrid">The Bootstrap Grid System</a></li>
 		</ul>
 	</nav>
 
@@ -91,6 +129,237 @@
 	</section>
 
 	<h2 id="CombSelect">Combining Selectors</h2>
+	<h6>Element with Class selector:</h6>
+	<div>p.big {</div>
+	<p>This rule will apply to Every p element with class="big". There can't be any spaces between the two selectors.</p>
+	<h6>Child Selector:</h6>
+	<div>article &gt; p {</div>
+	<p>This rule will target every p element that is a direct child of an article element.</p>
+	<h6>Descendant Selector:</h6>
+	<div>article p {</div>
+	<p>This rule will target any p element that is inside an article element at any level. Does not need to be a direct descendent. All of these combined selectors are not limited to elements and can be used with classes as well.</p>
+	<h6>Adjacent Sibling Selector:</h6>
+	<div>img + p {</div>
+	<p>This rule only applies to elements type p that are directly following elements type img, and both elements are a part of the same parent.</p>
+	<h6>General Sibling Selector:</h6>
+	<div>img ~ p {</div>
+	<p>This rule applies to all elements type p that come after an img element as long as they are a part of the same parent. The p element does not need to be directly after the img element.</p>
 
+	<h2 id="PseudoSelect">Pseudo-Class Selectors</h2>
+	<p>Pseudo-Class Selectors target only structures that can be targeted with simple combinations of regular selectors or structures that we want to style based on user-interactivity. For example, changing the style of a structure if the user hovers their mouse over it.</p>
+	<div>selector:pseudo-class {</div>
+	<p>selector is one of the previously discussed selectors. Pseudo-Classes include, but are not limited to:</p>
+	<div>:link - Applies to unvisited links. Usually used with a tags.</div>
+	<div>:visited - Applies to visited links. Usually applies to a tags.</div>
+	<div>:hover - Applies to tags only when the user hovers over the element.</div>
+	<div>:active - Applies to tags only while the user is actively clicking the element.</div>
+	<div>:nth-child() - Applies to the specified child. ex: <span>section div:nth-child(4) {</span> Specifies the 4th div child of a section element.</div>
+
+	<h2 id="StylePlacement">Style Placement</h2>
+	<p>Style placement determines how reusable styles are and what styles override other styles. You can specify a style in multiple places:
+		<ol>
+			<li>Inside the &lt;style&gt; tag in the head</li>
+			<li>(Inline styling) Inside the element tag using style=""
+				<ul>
+					<li>You can include as many rules as you want, separating them with semicolons;</li>
+					<li>Least reusable way to style, thus least preferred.</li>
+				</ul>
+			</li>
+			<li>External style sheets
+				<ul>
+					<li>Added to the HTML file using the following syntax:</li>
+					<li>&lt;link rel="stylesheet" href="file-name.css"&gt;</li>
+					<li>You almost always want all of your styles to be external from the HTML file itself.</li>
+				</ul></li>
+		</ol>
+	The lower the rule is in the file, the higher precedence it has. Inline styling &gt; head styles &gt; external styles. Further, a style lower in the external styles or head styles takes precedence over styles above them.</p>
+
+	<h2 id="ConflictResolution">Conflict Resolution</h2>
+	<p>Conflict resolution helps us determine which styles will be used and how to resolve conflicting styles.</p>
+	<p>Key concepts to CSS</p>
+	<div>Origin - origin precedence kicks in when 2 or more rules are in conflict. Origin precedence specifies that the last declaration wins. When declarations target the same element, but they do not conflict, i.e. they don't format the same things, the declarations merge.</div>
+	<div>Merge - 2 or more declarations target the same element, but they do not conflict. The styles of both declarations are applied to the target element.</div>
+	<div>Inheritance - Every element within an element that has a rule targeted at it inherits that rule. If a rule is declared on the body tag, every element within the body tag inherits that rule, unless it is overridden.</div>
+	<div>Specificity - Most specific selector combination wins. We can determine which selector is most specific by keeping score, and determining which has the highest score. To find the scores, we order the selectors from left to right from most specific to least specific.</div>
+	<ol>
+		<li>inline style attribute (style="")
+			<ul>
+				<li>If there is an inline style attribute, this is scored as a 1, and everything else gets a 0. Giving us a score of 1000</li>
+			</ul></li>
+		<li>ID selectors</li>
+		<li>Class, Pseudo-Class, Attribute Selectors</li>
+		<li>Number of elements used in selector combination</li>
+	</ol>
+	<p>Examples of specificity scores.</p>
+	<p>Example 1:</p>
+	<div>div p { color: green; }</div>
+	<div>This style selector is not inline, does not have an id, does not have a class, and has 2 elements.</div>
+	<div>Score: 0002</div>
+	<p>Example 2:</p>
+	<div>div #myParag { color: blue; }</div>
+	<div>This style selector is not inline, has 1 id, has 0 classes, and has 1 element.</div>
+	<div>Score: 0101</div>
+	<p>Example 3:</p>
+	<div>div.big p { color: green; }</div>
+	<div>This style selector is not inline, has 0 ids, has 1 class, has 2 elements.</div>
+	<div>Score: 0012</div>
+	<p style="color: green;">We can override any styles with more specificity by adding <span style="color: red;"> !important</span> before the semicolon.</p>
+	<p>Example:</p>
+	<div>p { color: blue !important; }</div>
+	<p>This will become a maintenance nightmare. Avoid using unless you absolutely have to.</p>
+
+	<h2 id="StylingText">Styling Text</h2>
+	<p>This section will display a few ways that we can style text using CSS.
+		<ul>
+			<li>font-family:
+				<ul>
+					<li>You sholud specify more than one font family because you are relying on the user to have these fonts installed on their computer.</li>
+					<li>A list of fonts and combinations can be found at <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">This website</a></li>
+					<li>You also want to specify at the end "serif" or "sans-serif" in case none of the other fonts are installed.</li>
+				</ul></li>
+			<li>color:
+				<ul>
+					<li style="color: orange;">You can use color names: red, yellow, etc.</li>
+					<li style="color: #0000ff;">Hexidecimal values are better for precise colors (#0000ff)</li>
+				</ul></li>
+			<li style="font-style: italic;">font-style: Specifies whether you want something to be "italic" or "normal</li>
+			<li>font-weight:
+				<ul>
+					<li style="font-weight: bold;">Can be sepecified as "bold"</li>
+					<li style="font-weight: 800;">Or can be specified from 100 - 1000 in 100 point increments.</li>
+				</ul></li>
+			<li style="font-size: 24px;">font-size: Specified in pixels "24px"</li>
+			<li>text-transform:
+				<ul>
+					<li style="text-transform: capitalize;">capitalize - capitalizes the first letter of every word.</li>
+					<li style="text-transform: lowercase;">lowercase - makes every letter lowercase</li>
+					<li style="text-transform: uppercase;">uppercase - makes every letter uppercase</li>
+				</ul></li>
+			<li>text-align: aligns text within its block-level
+				<ul>
+					<li style="text-align: center;">center</li>
+					<li style="text-align: justify;">justify</li>
+					<li style="text-align: left;">left</li>
+					<li style="text-align: right;">right</li>
+					<li style="text-align: end;">end</li>
+				</ul></li>
+		</ul>
+	</p>
+	<p>Relative Font Sizes.</p>
+	<p>px or pixels is an absolute font size. It will be the same on every device or screen. There are two types of relative font sizes.
+		<ol>
+			<li>percents
+				<ul>
+					<li>percents change the font size based on whatever the default font sizes are.</li>
+					<li style="font-size: 120%;">font-size: 120%; would make the font 120% the size of the default font setting or the current font setting.</li>
+				</ul></li>
+			<li>em's
+				<ul>
+					<li>em's change the font size relative to what the current font size is.</li>
+					<li style="font-size: 2em;">if the current font size is 16px, and we use the style font-size: 2em; The font will be 32px.</li>
+				</ul></li>
+		</ol>
+	</p>
+
+	<h2 id="BoxModel">The Box Model</h2>
+	<p>In HTML, every element is considered a box. Each box consists of:
+		<ol>
+			<li>content</li>
+			<li>padding - Surronds each element in the body.</li>
+			<li>border - Surrounds the padding.</li>
+			<li>margin - Surrounds the entire body of our code. Also surrounds the border and padding of each element.</li>
+		</ol>
+		<div id="BorderBoxes">
+			<div id="ContentBox">This is my content, surrounded by padding in blue, and border in black.</div>
+		</div>
+	Going from smallest to largest. The size of each element is the sum of the size of the content box, padding box, and border box.</p>
+	<div>The width: style only changes the width of the content box, not the total width.</div>
+	<div>We can change this to include the padding and border by using the style <span style="color: blue;">box-sizing: border-box;</span> in the rule.</div>
+	<div>Box-sizing is a style that is not inherited. We need to use the star(*) selector to apply box-sizing everywhere. The star selector applies styles to every element in the program.</div>
+	<div>Example: * { box-sizing: border-box; }</div>
+	<p>Margins: Margins for elements next to each other horizontally are cumulative. If 1 box has a margin of 25px and is horizontally next to another box with margin 30px. The total margin between them is 55px. </p>
+	<p>Margins next to each other vertically are not cumulative and collapse to the size of the larger margin. If a box with 25px margin is above a box with a 30px margin, the margin between the two boxes is 30px.</p>
+	<p>If we constrain both the height and width, the content box will be larger than the padding, border, and even margin. This means that content below this content will overlap. Below is an example.</p>
+	<div class="ContentOverflow">If my content fits within the size of the constrained box, there is no problem.</div>
+	<div class="ContentOverflow">But if my text is too big to fit into the box, we start to run into problems because it will throw off the entire layout of the rest of my webpage and even overlap with content directly below it.</div>
+	<div>Like this content.</div>
+	<p>To get around this, we can use a property called overflow. By default, overflow is visible. But we can change it to hidden, which cuts off whatever is outside the limits of the box; auto, adds scroll bars to any information that overflows from its box; scroll, makes the scroll bars always visible, whether they are necessary or not. Users typically hate double scrolling.</p>
+
+	<h2 id="BackgroundProperty">The Background Property</h2>
+	<p>There are a lot of different things we can do to the backgrounds of content:
+		<ul>
+			<li>background-color: Sets the color of the background.</li>
+			<li>background-image: url("file-name.jpg") - sets image to background. Default repeats image to fill background size. Image always shows on top of background color.</li>
+			<li>background-repeat: - sets how the image is inserted as the bacground.
+				<ul>
+					<li>repeat - default</li>
+					<li>repeat-y - repeats the image vertically only</li>
+					<li>repeart-x - repeats the image horizontally only</li>
+					<li>no-repeat - only includes one image and may not fill the entire background</li>
+				</ul></li>
+			<li>background-position: top right; - positions the image in the top right of the background. If you specify only one, the other defaults to center.</li>
+			<li>background: Allows us to combine all of the above together. This property overrides all other individually specified background properties. No specific order.</li>
+		</ul></p>
+
+	<h2 id="FloatPostion">Positioning Elements by Floating</h2>
+	<p>Most user interfaces today are made by floating elements.</p>
+	<p>Here is an example using floating positioning. <a href="float_positions_example.html" title="Positioning Elements by Floating Example"><div>Example.</div></a></p>
+	<p>When you float elements, the browser takes them out of the regular document flow. Margins of floated elements never collapse, they always accumulate.</p>
+	<p>float: right; will float the current property to the right.</p>
+	<p>In order to get the document back to regular document flow, we need to use the clear: property.</p>
+	<div>clear: left; will make sure nothing is floating to the left of an element.</div>
+	<div>clear: both; will make sure there are no floating elements to the left or the right.</div>
+	<p>Floating elements allow for very flexible site layouts.</p>
+
+	<h2 id="RnEPos">Relative and Absolute Element Positioning</h2>
+	<p>Static Positioning - Normal document flow. Defalut for all elements except html. Positioning offsets are ignored.</p>
+	<p>Relative Positioning - Element is positioned relative to its position in normal document flow. Offsets will position the element relative to where it would normally be. The element is not taken out of normal document flow. Even if it is moved, its orginal spot is reserved.</p>
+	<div>Positioning properties are: top:, bottom:, left:, right:. These properties move the object from the stated direction, so top: 50px; moves the object down 50px from the top edge.You can also use negative values</div>
+	<p>Absolute Positioning - All offsets are relative to the position of the nearest ancestor which has positioning set other than static. By default, html is the only element that has non-static positioning set on it. Element is taken out of normal document flow if positioning is set to absolute.</p>
+	<div>Use position: absolute; to make positioning absolute. We then use the offset properties (bottom, top, left, right) to move the element.</div>
+	<div>Note - bottom: 10px; moves the absolute element up 10 px from the bottom of the other element.</div>
+
+	<h2 id="MediaQueries">Media Queries</h2>
+	<p>Media queries let you display certain styles based on the target device (height, width, orientation).</p>
+	<div>Media Query Syntax:</div>
+	<div>@media (max-width: 767px) {</div>
+	<div>p { color: blue; }</div>
+	<div>}</div>
+	<p>We put all of the styles we want to display on that type of device inside the media query. You can combine media operators by using logical operators, such as and Commas are equivalent to or logical operators.</p>
+	<div>Types of media query properties:</div>
+	<div>min-width, max-width, min-height, max-height</div>
+
+	<h2 id="Responsive">Responsive Design</h2>
+	<p>Responive design was born mainly due to the explosion of mobile devices. There are so many devices, but you cannot ignore any of them.</p>
+	<p>A responsive website is a site designed to adapt its layout to the viewing environment by using fluid, proportion-based grids, flexible images, and CSS3 media queries.</p>
+	<p>The most important part of responsive design is the layout. The most common layout is the 12-column grid responsive layout.</p>
+	<p>12-column grid responsive layout - We evenly split content across 12 evenly sized grids. 1 column = 8.33% of all 12 columns. We can also nest grids inside columns.</p>
+	<code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>
+	<div>The meta tag above informs the browser that the website is responsive and that it doesn't need to zoom out.</div>
+	<div>width=device-width tells the browser to not try to zoom out. initial-scale=1 sets the initial scale to 1.</div>
+
+	<h2 id="TwitterBS">Introduction to Twitter Bootstrap</h2>
+	<p>Twitter Bootstrap is a framework built to develop responsive, mobile first projects on the web. It predefines a lot of CSS elements. You should plan for mobile from the start.</p>
+	<p>Disadvantages of bootstrap <br> #1 It's too big and too bloated - There are a lot of features you will probably never ues. <br> #2 </p>
+	<p>Setting up bootstrap <br> You need to download bootstrap, and then unzip the contents to the correct directory location. Make sure to link your own styles after linking the bootstrap styles. <br> At the end of the body, we need to declare some &lt;script&gt; tags. First declare the j-query.js file. Second declare the bootstrap.js file. Finally declare the script.js file (Our own javascript file). <br><a href="Bootstrap_Setup.html" title="Bootstrap Setup Example">Example of setting up twitter bootstrap.</a></p>
+
+	<h2 id="BSGrid">The Bootstrap Grid System</h2>
+	<p>This is one of the most central components of Bootstrap.<br>The grid system is built off of the following lines.</p>
+	<div>&lt;div class="container"&gt; <span style="color:red">Bootstrap grid always has to be inside a container.</span><br>
+		&lt;div class="row"&gt; <span style="color:red">Creates horizontal groups of columns.</span><br>
+		&lt;div class="col-md-4"&gt;Col 1&lt;/div&gt; <span style="color:red">Defines the size of columns within the row.</span><br>
+		... <br>
+		&lt;/div&gt; <br>
+		&lt;/div&gt; </div>
+	<p>The above code does not need to be placed in div elements, meaning you can use semantic elements such as header and nav. <br>
+	container class - Has predetermined, fixed width that is still responsive based on the width of the browser. In other words, it has a certain width at one break point, and a different width at another break point.<br>
+	container-fluid class - alternative to container class. This class stretches content the whole length of the browser and provides consistant padding around your grid and other content. <br>
+	row class- creates horizontal groups of columns. The columns collapse and interact with each other as a group but independently from columns in another row. This class applies a negative margin to counteract the margin of the container. If there was no negative margin, the content in the columns would not line up with the content outside the rows. <br>
+	Column classes - Define the size of columns in a row.</p>
+	<div>Column class format: col-SIZE-SPAN</div>
+	<p>Size: Screen width range identifier (md=medium, lg=large(width=1200px+), etc.) Sizes can be found in documentation. Columns will collapse (stack) below the given size, unless another rule applies. <br>
+	Span: How many columns the element should span (1-12).</p>
+
+	<a href="#top">Back to top.</a>
 </body>
 </html>

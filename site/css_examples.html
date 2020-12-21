@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS Examples</title>
+	<!-- CSS Styles -->
+	<style>
+		/* /* is used to comment inside tags apparently*/
+
+		/* Element Selector
+		Makes all h1 elements blue, size 36 font, center-aligned. */
+		h1 {
+			color: blue;
+			font-size: 36px;
+			text-align: center;
+		}
+
+		/* Class Selector
+		makes all elements with class="green" green.
+		*/
+		.green {
+			color: green;
+		}
+
+		/*ID Selector
+		Makes the element with id="name" the color orange with font size 50.
+		*/
+		#name {
+			font-size: 50px;
+			color: orange;
+			background-color: none;
+		}
+
+		/*Grouping Selectors
+		All elements type div or elements with class="highlightY" will have a background color of yellow, opacity 70%.
+		*/
+		div, .highlightY {
+			background-color: yellow;
+			opacity: .7
+		}
+
+		/*Element with Class Selector
+		Applies to any element type h2 that also has class="red".
+		*/
+		h2.red {
+			color: red;
+		}
+
+		/*Child Selctor
+		Applies to any element type article that is a direct child of an element type p.
+		*/
+		p > span {
+			font-style: italic; 
+		}
+
+		/*Descendant Selector
+		Applies to any span element inside a p element, whether it is a direct child or not.
+		*/
+		p span {
+			font-weight: bold;
+		}
+
+		/*
+		Removes bullet points from any list item in the header.
+		*/
+		header li {
+			list-style: none;
+		}
+
+		/*Adjacent Sibling
+		*/
+
+		/*General Sibling
+		*/
+
+		/*Pseudo-Class Selectors
+		Sets all a tags that have or have not been visited to black text with a green background with a 1 pixel solid blue border. They are also displayed as block-level elements.
+		*/
+		a:link, a:visited {
+			text-decoration: none;
+			background-color: green;
+			border: 1px solid blue;
+			color: black;
+			display: block;
+			width: 200px;
+			text-align: center;
+			margin-bottom: 1px;
+		}
+
+		/*Formats the buttons when the user is hovering over them or actively clicking them.
+		*/
+		a:hover, a:active {
+			background-color: red;
+			color: purple;
+		}
+
+		/*nth-child selector
+		This formats only the 3rd list item in the header element.
+		*/
+		header li:nth-child(3) {
+			font-size: 24px;
+		}
+
+		/*Formats odd numbered article elements in a section element.
+		*/
+		section article:nth-child(odd) {
+			background-color: gray;
+		}
+
+		/*Changes the hover formatting of the 4th article element in a section to green with a pointer cursor.
+		*/
+		section article:nth-child(4):hover {
+			background-color: green;
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li><a href="index.html" title="Index">Index</a></li>
+			<li><a href="element_examples.html" title="Module 1: HTML Basics">Module 1: HTML Basics</a></li>
+			<li><a href="module_2.html" title="Module 2: CSS Basics">Module 2: CSS Basics</a></li>
+
+		</ul>
+	</header>
+	<section id="BasicSelectors">
+		<h1>CSS Examples</h1>
+		<h2>Basic Selectors</h2>
+		<p class="green">Everything in this element will be green.
+			<span>Including text in inline elements such as this span.
+			</span>
+		And text that comes after inline elements.
+			<div>But text that is inside a nested block element will not be green.
+			</div>
+		And text after a nested block element will also not be green.
+		</p>
+		<div id="name">The Don.
+		</div>
+		<p>That is the only element that can have id="name" because id's can only be used by one element.
+		</p>
+	</section>
+
+	<section id="CombiningSelectors">
+		<h2 class="red">Combining Selectors</h2>
+		<p>Child selectors apply to any element that is a direct child of a specified element. <span>This span element is a direct child of an element type p. That is why it is in italics.</span>
+		<div>If we put a span inside a different element inside of the p element.Such as this div element.<span>The text is not in italics. I need to learn how div elements work because I think that it divides the p element, and stuff in the div element and after it doesn't act like it is in the p element.
+		</span></div>
+		</p>
+	</section>
+
+	<section>
+		<article>This article is odd, so it is gray.</article>
+		<article>This article is even so it is not gray.</article>
+		<article>gray</article>
+		<article>Not gray, green hover.</article>
+		<article>Gray again.</article>
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML Tags</title>
+</head>
+<body>
+	<header id="Top">
+		<h1>Content Models</h1>
+		<nav>
+			<ul>Types of Content
+				<li><a href="#Metadata">Metadata Content</a></li>
+				<li><a href="#Flow">Flow Content</a></li>
+				<li><a href="#Sectioning">Sectioning Content</a></li>
+				<li><a href="#Heading">Heading Content</a></li>
+				<li><a href="#Phrasing">Phrasing Content</a></li>
+				<li><a href="#Embedded">Embedded Content</a></li>
+				<li><a href="#Interactive">Interactive Content</a></li>
+				<li><a href="#Palpable">Palpable Content</a></li>
+				<li><a href="#ScriptSupport">Script-Supporting Elements</a></li>
+				<li><a href="#Transparent">Transparent Content Models</a></li>
+				<li><a href="#Paragraphs">Paragraphs</a></li>
+				<li><a href="#Semantics">Semantic Elements</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section id="Metadata">
+		<h2>Metadata Content</h2>
+		<h3>base, link, meta, noscript, script, style, template, title</h3>
+		<div>Metadata content sets up the presentation or behavior of the rest of the content, or sets up the relationship of the document with other documents, or conveys other "out of band" information.</div>
+	</section>
+
+	<section id="Flow">
+		<h2>Flow Content</h2>
+		<h3>a, abbr, address, area, article, aside, audio, b, bdi, bdo, blockquote, br, button, canvas, cite, code, data, datalist, del, details, dfn, dialog, div, dl, em, embed, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, i, iframe, img, input, ins, kbd, label, link, main, map, mark, MathML math, menu, meta, meter, nav, noscript, object, ol, output, p, picture, pre, progress, q, ruby, s, samp, script, section, select, slot, small, span, strong, sub, sup, SVG svg, table, template, textarea, time, u, ul, var, video, ebr, autonomus custom elements, text</h3>
+		<div>Most elements that are used in the body of documents and applications are categorized as flow content.</div>
+	</section>
+
+	<section id="Sectioning">
+		<h2>Sectioning Content</h2>
+		<h3>article, aside, nav, section</h3>
+		<div>Sectioning content is content that defines the scope of headings and footers.</div>
+	</section>
+
+	<section id="Heading">
+		<h2>Heading Content</h2>
+		<h3>h1, h2, h3, h4, h5, h6, hgroup</h3>
+		<div>Heading content defines the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself).</div>
+	</section>
+
+	<section id="Phrasing">
+		<h2>Phrasing Content</h2>
+		<h3>a, abbr, area (if it is a descendant of a map element), audio, b, bdi, bdo, br, button, canvas, cite, code, data, datalist, del, dfn, em, embed, i, iframe, img, input, ins, kbd, label, link (if it is allowed in the body), map, mark, MathML math, meta (if the itemprop attribute is present), meter, noscript, object, output, picture, progress, q, ruby, s, samp, script, select, slot, small, span, strong, sub, sup, SVG svg, template, textarea, time, u, var, video, wbr, autonomous custom elements, text</h3>
+		<div>Phrasing content is the text of the document, as well as elements that mark up that text at the intra-paragraph level. Runs of phrasing content form paragraphs.</div>
+		<div>Most elements that are categorized as phrasing content can only contain elements that are themselves categorized as phrasing content, not just any flow content.</div>
+	</section>
+
+	<section id="Embedded">
+		<h2>Embedded Content</h2>
+		<h3>audio, canvas, embed, iframe, img, MathML math, object, picture, SVG svg, video</h3>
+		<div>Embedded content is content that imports another resource into the document, or content from another vocabulary that is inserted into the document.</div>
+		<div>Elements that are from namespaces other than the HTML namespace and that convey content but not metadata, are embedded content for the purposes of the content models defined in this specification. (For example, MathML, or SVG).</div>
+		<div>Some embedded content elements can have fallback content: content that is to be used when the external resource cannot be used (e.g. because it is of an unsupported format). The element definitions state what the fallback is, if any.</div>
+	</section>
+
+	<section id="Interactive">
+		<h2>Interactive Content</h2>
+		<h3>a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframe, img (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)</h3>
+		<div>Interactive content is content that is specifically intended for user interaction.</div>
+	</section>
+
+	<section id="Palpable">
+		<h2>Palpable Content</h2>
+		<h3>a, abbr, address, article, aside audio (if the controls attribute is present), b, bdi, bdo, blockquote, button, canvas, cite, code, data, details, dfn, div, dl (if the element's children include at least one name-value group), em, embed, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, input (if the type attribute is not in the Hidden state), ins, kbd, label, main, map, mark, MathML math, menu (if the element's children include at least one li element), meter, nav, object, ol (if the element's children include at least one li element), output, p, pre, progress, q, ruby, s, samp, section, select, small, span, strong, sub, sup, SVG svg, table, textarea, time, u, ul (if the element's children include at least one li element), var, video, autonomous custom elements, text that is not inter-element whitespace</h3>
+		<div>Palpable content makes an element non-empty by providing either some descendant non-empty text, or else something users can hear, view, or otherwise interact with.</div>
+		<div>As a general rule, elements whose content model allows any flow content or phrasing content should have at least one node in its contents that is palpable content and that does not have the hidden attribute specified.</div>
+	</section>
+
+	<section id="ScriptSupport">
+		<h2>Script-Supporting Elements</h2>
+		<h3>script, template</h3>
+		<div>Script-supporting elements are those that do not represent anything themselves (i.e. they are not rendered), but are used to support scripts, e.g. to provide functionality to the user.</div>
+	</section>
+
+	<section id="Transparent">
+		<h2>Transparent Content Models</h2>
+		<h3></h3>
+		<div>The content model of a transparent element is derived from the content model of its parent element: the elements required in the part of the content model that is "transparent" are the same elements as required in the part of the content model of the parent of the transparent element in which the transparent element finds itself.</div>
+		<div>When a transparent element has no parent, then the part of its content model that is "transparent" must instead be treated as accepting any flow content.</div>
+	</section>
+
+	<section id="Paragraphs">
+		<h2>Paragraphs</h2>
+		<div>A paragraph is typically a run of phrasing content that discuss a particular topic, as in typography, but can also be used for more general thematic grouping. For instance, an address is also a paragraph, as is a part of a form, a byline, or a stanza of a poem.</div>
+		<div>The term paragraph as defined in this section is used for more than just the definition of the p element. The paragraph concept defined here is used to describe how to interpret documents. The p element is merely one of several way of marking up a paragraph.</div>
+		<div>Paragraphs in flow content are defined relative to what the document looks like without the a, ins, del, and map elements complicating matters, since those elements, with their hybrid content models, can straddle paragraph boundaries.</div>
+	</section>
+
+	<section id="Semantics">
+		<h2>Semantic Elements</h2>
+		<h3>address, article, aside, footer, header, hgroup, main, nav, section, blockquote, </h3>
+	</section>
+
+	<a href="#Top">Back to Top.</a>
+</body>
+</html>
